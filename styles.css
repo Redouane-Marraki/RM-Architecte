@@ -49,7 +49,7 @@ header a:hover {
 }
 
 .main {
-    background-image: url(images/arc4.jpg);
+    background-image: url(arc4.jpg);
     background-attachment: fixed;
     height: 500px;
     width: 100%;
