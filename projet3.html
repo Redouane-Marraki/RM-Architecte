@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>RM Architecte - Villa Moderne</title>
+    <link rel="icon" href="images/rm-iconn.png" type="image/png" sizes="100x100">
+
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+      <ul>
+        <li><a href="index.html">ACCUEIL</a></li>
+        <li><a href="#projects">NOS PROJETS</a></li>
+        <li><a href="#about">À PROPOS DE NOUS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <a href="index.html"><h1>RM Architecte</h1></a>
+      </div>
+      <ul class="desktop-nav">
+        <li><a href="index.html">ACCUEIL</a></li>
+        <li><a href="#projects">NOS PROJETS</a></li>
+        <li><a href="#about">À PROPOS DE NOUS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <ul class="mobile-nav">
+        <li class="icon" onclick="toggleSidebar()">&#9776;</li>
+      </ul>
+    </header>
+
+    <!-- Project Section with Video Background -->
+    <section id="project" class="section">
+      <div class="title1">
+        <h1>Villa Moderne</h1>
+        <p class="project-description">
+          Découvrez notre projet "Villa Moderne", une résidence de luxe, alliant élégance, confort et innovation. Chaque détail a été pensé pour offrir une expérience de vie exceptionnelle, où l'architecture contemporaine rencontre l'innovation technologique.
+        </p>
+      </div>
+
+      <!-- Full-Screen Video Background -->
+      <div class="project-video-container">
+        <video autoplay muted loop class="project-video">
+          <source src="images/VillaModerne-video.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+
+      <!-- Project Image Slide -->
+      <div class="project-slide">
+        <div class="slide-container">
+          <!-- Add project images with hover titles -->
+          <div class="slide">
+            <img src="projet3/villa1.jpg" alt="Villa Moderne Image 1">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 1</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa2.jpg" alt="Villa Moderne Image 2">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 2</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa3.jpg" alt="Villa Moderne Image 3">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 3</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa4.jpg" alt="Villa Moderne Image 4">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 4</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa5.jpg" alt="Villa Moderne Image 5">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 5</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa6.jpg" alt="Villa Moderne Image 6">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 6</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa7.jpg" alt="Villa Moderne Image 7">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 7</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa8.jpg" alt="Villa Moderne Image 8">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 8</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa9.jpg" alt="Villa Moderne Image 9">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 9</div>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="projet3/villa10.jpg" alt="Villa Moderne Image 10">
+            <div class="overlay">
+              <div class="text">Villa Moderne Image 10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="title1"><h1>Contactez-nous</h1></div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1585tNMzoV/?mibextid=wwXIfr" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/rm_architecte/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@rm.architecte?_t=ZM-8vJMGSJ1Sbf&_r=1" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 RM Architecte. Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>
