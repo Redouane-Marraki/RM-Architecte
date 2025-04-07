@@ -153,3 +153,46 @@ document.addEventListener('DOMContentLoaded', function() {
       }, { once: true });
     }
   });
+// Improved touch handling for mobile scroll+hover
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.slide');
+  let touchStartY = 0;
+  let isScrolling = false;
+
+  slides.forEach(slide => {
+    slide.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+      isScrolling = false;
+      this.classList.add('touch-active');
+    });
+
+    slide.addEventListener('touchmove', function(e) {
+      // Check if user is scrolling (vertical movement)
+      if (Math.abs(e.touches[0].clientY - touchStartY) > 5) {
+        isScrolling = true;
+        this.classList.remove('touch-active');
+      }
+    });
+
+    slide.addEventListener('touchend', function(e) {
+      if (!isScrolling) {
+        // If not scrolling, maintain hover state briefly
+        setTimeout(() => {
+          this.classList.remove('touch-active');
+        }, 500);
+      } else {
+        this.classList.remove('touch-active');
+      }
+      isScrolling = false;
+    });
+  });
+
+  // Cancel hover when user starts scrolling page
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 0) {
+      slides.forEach(slide => {
+        slide.classList.remove('touch-active');
+      });
+    }
+  });
+});
