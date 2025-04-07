@@ -153,46 +153,87 @@ document.addEventListener('DOMContentLoaded', function() {
       }, { once: true });
     }
   });
-// Improved touch handling for mobile scroll+hover
+  // Improved touch handling for mobile scroll+hover
 document.addEventListener('DOMContentLoaded', function() {
-  const slides = document.querySelectorAll('.slide');
-  let touchStartY = 0;
-  let isScrolling = false;
-
-  slides.forEach(slide => {
-    slide.addEventListener('touchstart', function(e) {
-      touchStartY = e.touches[0].clientY;
-      isScrolling = false;
-      this.classList.add('touch-active');
-    });
-
-    slide.addEventListener('touchmove', function(e) {
-      // Check if user is scrolling (vertical movement)
-      if (Math.abs(e.touches[0].clientY - touchStartY) > 5) {
-        isScrolling = true;
-        this.classList.remove('touch-active');
-      }
-    });
-
-    slide.addEventListener('touchend', function(e) {
-      if (!isScrolling) {
-        // If not scrolling, maintain hover state briefly
-        setTimeout(() => {
-          this.classList.remove('touch-active');
-        }, 500);
-      } else {
-        this.classList.remove('touch-active');
-      }
-      isScrolling = false;
-    });
-  });
-
-  // Cancel hover when user starts scrolling page
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 0) {
-      slides.forEach(slide => {
-        slide.classList.remove('touch-active');
+    const slides = document.querySelectorAll('.slide');
+    let touchStartY = 0;
+    let isScrolling = false;
+  
+    slides.forEach(slide => {
+      slide.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+        isScrolling = false;
+        this.classList.add('touch-active');
       });
-    }
+  
+      slide.addEventListener('touchmove', function(e) {
+        // Check if user is scrolling (vertical movement)
+        if (Math.abs(e.touches[0].clientY - touchStartY) > 5) {
+          isScrolling = true;
+          this.classList.remove('touch-active');
+        }
+      });
+  
+      slide.addEventListener('touchend', function(e) {
+        if (!isScrolling) {
+          // If not scrolling, maintain hover state briefly
+          setTimeout(() => {
+            this.classList.remove('touch-active');
+          }, 500);
+        } else {
+          this.classList.remove('touch-active');
+        }
+        isScrolling = false;
+      });
+    });
+  
+    // Cancel hover when user starts scrolling page
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 0) {
+        slides.forEach(slide => {
+          slide.classList.remove('touch-active');
+        });
+      }
+    });
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const slidesContainer = document.querySelector('.slides');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    const slideCount = document.querySelectorAll('.slide').length;
+    const slideInterval = 2000; // 3 seconds
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        const slideWidth = 100 / slideCount;
+        slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        
+        // Update dots
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        goToSlide(currentSlide);
+    }
+    
+    // Set up automatic sliding
+    let autoSlide = setInterval(nextSlide, slideInterval);
+    
+    // Pause on hover
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    carousel.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(nextSlide, slideInterval);
+    });
+    
+    // Dot navigation
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            goToSlide(slideIndex);
+        });
+    });
 });
