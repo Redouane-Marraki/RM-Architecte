@@ -535,3 +535,42 @@ body, html {
     color: #fff; /* Change color on hover */
   }
   
+
+  /* Add this class to simulate the hover effect on mobile */
+.pics.touch-hover img {
+    filter: grayscale(100%) brightness(0.5);
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* Add this class to simulate hover effects on mobile */
+.pics.touch-hover img {
+    filter: grayscale(100%) brightness(0.5);
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.project-title.touch-hover {
+    opacity: 1;
+}
+
+.sidebar ul li a.touch-hover {
+    background-color: white;
+    color: black;
+    padding: 7px;
+    border-radius: 15px;
+}
+
+/* Ensure the hover effect for project title */
+.pics:hover .project-title {
+    opacity: 1;
+}
+
+.pics.touch-hover:hover .project-title {
+    opacity: 1;
+}
+
+.sidebar .close-btn.touch-hover {
+    color: white;
+    cursor: pointer;
+}
