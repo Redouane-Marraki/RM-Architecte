@@ -4,17 +4,23 @@
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.logo{
+    width : 100px; 
+    height:  60px;  
+}
 
 body {
     background-color: #1a1a1a;
 }
-
+.logo-rm{
+    
+}
 header {
     border: 0;
     justify-content: space-between;
     align-items: center;
     display: flex;
-    background-color: #111;
+    background-color: transparent;
     padding: 10px 0;
 }
 
@@ -48,21 +54,8 @@ header a:hover {
     cursor: pointer;
 }
 
-.main {
-    background-image: url(arc4.jpg);
-    background-attachment: fixed;
-    height: 500px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
-.main .intro {
-    font-size: 1.5rem;
-    margin-top: 20px;
-}
+
 
 .title1 {
     font-size: 2rem;
@@ -751,25 +744,69 @@ ul.small-list li:hover {
       height: 100%;
     }
   }
-/* Mobile Touch Scroll with Hover Fix */
+  /* Mobile Touch Scroll with Hover Fix */
 @media (max-width: 768px) {
-  .project-slide {
-    overflow: visible; /* Allow hover effects to extend */
-    padding-bottom: 20px;
+    .project-slide {
+      overflow: visible; /* Allow hover effects to extend */
+      padding-bottom: 20px;
+    }
+  
+    .slide {
+      touch-action: pan-y; /* Enable vertical scrolling */
+      -webkit-touch-callout: none; /* Disable long-touch menu */
+    }
+  
+    .slide.touch-active {
+      transform: translateY(-5px) scale(1.02);
+      z-index: 10; /* Bring active item above others */
+      transition: transform 0.2s ease;
+    }
+  
+    .slide-container {
+      padding-bottom: 30px; /* Space for hover effects */
+    }
   }
 
-  .slide {
-    touch-action: pan-y; /* Enable vertical scrolling */
-    -webkit-touch-callout: none; /* Disable long-touch menu */
-  }
+  .carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
 
-  .slide.touch-active {
-    transform: translateY(-5px) scale(1.02);
-    z-index: 10; /* Bring active item above others */
-    transition: transform 0.2s ease;
-  }
+.slides-container {
+    width: 100%;
+    overflow: hidden;
+}
 
-  .slide-container {
-    padding-bottom: 30px; /* Space for hover effects */
-  }
+.slides {
+    display: flex;
+    width: 300%; /* 3 slides = 300% */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 33.333%; /* 100% / 3 slides */
+    height: 400px; /* Adjust as needed */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
 }
