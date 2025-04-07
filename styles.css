@@ -751,3 +751,25 @@ ul.small-list li:hover {
       height: 100%;
     }
   }
+/* Mobile Touch Scroll with Hover Fix */
+@media (max-width: 768px) {
+  .project-slide {
+    overflow: visible; /* Allow hover effects to extend */
+    padding-bottom: 20px;
+  }
+
+  .slide {
+    touch-action: pan-y; /* Enable vertical scrolling */
+    -webkit-touch-callout: none; /* Disable long-touch menu */
+  }
+
+  .slide.touch-active {
+    transform: translateY(-5px) scale(1.02);
+    z-index: 10; /* Bring active item above others */
+    transition: transform 0.2s ease;
+  }
+
+  .slide-container {
+    padding-bottom: 30px; /* Space for hover effects */
+  }
+}
