@@ -128,3 +128,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Force video play on mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.project-video');
+    
+    // Modern way to handle autoplay
+    if (video) {
+      const playPromise = video.play();
+      
+      // Handle autoplay restrictions
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Fallback: Show play button
+          video.controls = true;
+          console.log('Autoplay prevented:', error);
+        });
+      }
+    }
+    
+    // Add touch event to play video if blocked
+    if ('ontouchstart' in window) {
+      video.addEventListener('touchstart', function() {
+        video.play().catch(e => console.log('Video play failed:', e));
+      }, { once: true });
+    }
+  });
