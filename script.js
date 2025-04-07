@@ -60,3 +60,17 @@ projectLinks.forEach(link => {
         document.getElementById("sidebar").classList.remove('open');
     });
 });
+
+// Handle closing the sidebar when clicking the close button
+const closeBtn = document.querySelector('.close-btn');
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        document.getElementById("sidebar").classList.remove('open');
+    });
+}
+
+// Handle toggling of the sidebar
+const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+if (sidebarToggleBtn) {
+    sidebarToggleBtn.addEventListener('click', toggleSidebar);
+}
