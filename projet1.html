@@ -36,12 +36,16 @@
 
     <!-- Project Section with Video Background -->
     <section id="project" class="section">
-      <!-- Full-Screen Video Background -->
+      <!-- Full-Screen Video Background with mobile fixes -->
       <div class="project-video-container">
-        <video autoplay muted loop class="project-video">
+        <video autoplay muted loop playsinline class="project-video">
           <source src="station-video (1).mp4" type="video/mp4">
+          <!-- Optional: Add WebM format for better compression -->
+          <source src="station-video.webm" type="video/webm">
           Votre navigateur ne supporte pas la lecture vidéo.
         </video>
+        <!-- Fallback image if video doesn't load -->
+        <img src="video-fallback.jpg" alt="Station Service Preview" class="video-fallback">
       </div>
 
       <div class="project-description-container">
@@ -64,68 +68,68 @@
         </div>
       </div>
 
-      <!-- Project Image Slide -->
+      <!-- Project Image Slide with touch hover support -->
       <div class="project-slide">
         <div class="slide-container">
-          <!-- Add 10 project images with hover titles -->
-          <div class="slide">
-            <img src="p1-1.jpeg" alt="Station Service Image 1">
+          <!-- Project images with hover/touch titles -->
+          <div class="slide" data-title="Parking">
+            <img src="p1-1.jpeg" alt="Station Service Parking">
             <div class="overlay">
               <div class="text">Parking</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-2.jpeg" alt="Station Service Image 2">
+          <div class="slide" data-title="Salle de fête">
+            <img src="p1-2.jpeg" alt="Station Service Salle de fête">
             <div class="overlay">
               <div class="text">Salle de fête</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-3.jpeg" alt="Station Service Image 3">
+          <div class="slide" data-title="Vue extérieure">
+            <img src="p1-3.jpeg" alt="Station Service Vue extérieure">
             <div class="overlay">
-              <div class="text">Image 3</div>
+              <div class="text">Vue extérieure</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-4.jpeg" alt="Station Service Image 4">
+          <div class="slide" data-title="Motel">
+            <img src="p1-4.jpeg" alt="Station Service Motel">
             <div class="overlay">
               <div class="text">Motel</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-5.jpeg" alt="Station Service Image 5">
+          <div class="slide" data-title="Parking nocturne">
+            <img src="p1-5.jpeg" alt="Station Service Parking nocturne">
             <div class="overlay">
-              <div class="text">Parking</div>
+              <div class="text">Parking nocturne</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-6.jpeg" alt="Station Service Image 6">
+          <div class="slide" data-title="Piscine">
+            <img src="p1-6.jpeg" alt="Station Service Piscine">
             <div class="overlay">
               <div class="text">Piscine</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-7.jpeg" alt="Station Service Image 7">
+          <div class="slide" data-title="Café intérieur">
+            <img src="p1-7.jpeg" alt="Station Service Café intérieur">
             <div class="overlay">
-              <div class="text">Image 7</div>
+              <div class="text">Café intérieur</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-8.jpeg" alt="Station Service Image 8">
+          <div class="slide" data-title="Station de service">
+            <img src="p1-8.jpeg" alt="Station Service Station de service">
             <div class="overlay">
-              <div class="text">Image 8</div>
+              <div class="text">Station de service</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-9.jpeg" alt="Station Service Image 9">
+          <div class="slide" data-title="Vue aérienne">
+            <img src="p1-9.jpeg" alt="Station Service Vue aérienne">
             <div class="overlay">
-              <div class="text">Image 9</div>
+              <div class="text">Vue aérienne</div>
             </div>
           </div>
-          <div class="slide">
-            <img src="p1-10.jpeg" alt="Station Service Image 10">
+          <div class="slide" data-title="Entrée principale">
+            <img src="p1-10.jpeg" alt="Station Service Entrée principale">
             <div class="overlay">
-              <div class="text">Image 10</div>
+              <div class="text">Entrée principale</div>
             </div>
           </div>
         </div>
