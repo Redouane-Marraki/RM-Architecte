@@ -1,76 +1,130 @@
 // Toggle the sidebar
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("open");  // Toggle the 'open' class to control sidebar width
+    sidebar.classList.toggle("open");
 }
 
-// Close the sidebar when clicking on any link inside the sidebar
-const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
-sidebarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById("sidebar").classList.remove('open');
-    });
-
-    // Simulate hover effect on mobile
-    link.addEventListener('touchstart', function() {
-        this.classList.add('touch-hover');
-    });
-
-    link.addEventListener('touchend', function() {
-        setTimeout(() => {
-            this.classList.remove('touch-hover');
-        }, 200); // Delay to simulate the hover effect
-    });
-});
-
-// Handle tap interactions on project images (simulate hover effect on touch devices)
-const projectImages = document.querySelectorAll('.pics img');
-projectImages.forEach(image => {
-    image.addEventListener('touchstart', function() {
-        // Add the touch-hover class to simulate hover effect
-        this.closest('.pics').classList.add('touch-hover');
-    });
-
-    image.addEventListener('touchend', function() {
-        // Remove the touch-hover class after the tap ends
-        setTimeout(() => {
-            this.closest('.pics').classList.remove('touch-hover');
-        }, 200); // Delay to simulate the hover effect
-    });
-});
-
-// Handle tap interactions on project titles (simulate hover effect on touch devices)
-const projectTitles = document.querySelectorAll('.project-title');
-projectTitles.forEach(title => {
-    title.addEventListener('touchstart', function() {
-        this.classList.add('touch-hover');
-    });
-
-    title.addEventListener('touchend', function() {
-        setTimeout(() => {
-            this.classList.remove('touch-hover');
-        }, 200); // Delay to simulate the hover effect
-    });
-});
-
-// Close sidebar when clicking on a project or any link inside the sidebar
-const projectLinks = document.querySelectorAll('.pics a');
-projectLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById("sidebar").classList.remove('open');
-    });
-});
-
-// Handle closing the sidebar when clicking the close button
-const closeBtn = document.querySelector('.close-btn');
-if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-        document.getElementById("sidebar").classList.remove('open');
-    });
+// Close sidebar function
+function closeSidebar() {
+    document.getElementById("sidebar").classList.remove("open");
 }
 
-// Handle toggling of the sidebar
-const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
-if (sidebarToggleBtn) {
-    sidebarToggleBtn.addEventListener('click', toggleSidebar);
-}
+// Initialize event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle sidebar when clicking the hamburger icon
+    const sidebarToggleBtn = document.querySelector('.icon');
+    if (sidebarToggleBtn) {
+        sidebarToggleBtn.addEventListener('click', toggleSidebar);
+    }
+
+    // Close sidebar when clicking the close button
+    const closeBtn = document.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeSidebar);
+    }
+
+    // Close sidebar when clicking on any link inside the sidebar
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', closeSidebar);
+
+        // Simulate hover effect on mobile
+        link.addEventListener('touchstart', function() {
+            this.classList.add('touch-hover');
+        });
+
+        link.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('touch-hover');
+            }, 200);
+        });
+    });
+
+    // Handle tap interactions on project images and titles
+    const projectElements = document.querySelectorAll('.pics, .pics img, .project-title, .pics a');
+    projectElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            const picsElement = this.closest('.pics') || this;
+            picsElement.classList.add('touch-hover');
+            
+            const title = picsElement.querySelector('.project-title');
+            if (title) {
+                title.classList.add('touch-hover');
+            }
+        });
+
+        element.addEventListener('touchend', function() {
+            const picsElement = this.closest('.pics') || this;
+            setTimeout(() => {
+                picsElement.classList.remove('touch-hover');
+                
+                const title = picsElement.querySelector('.project-title');
+                if (title) {
+                    title.classList.remove('touch-hover');
+                }
+            }, 200);
+        });
+    });
+
+    // Handle hover and touch for about image
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutImage) {
+        // Mouse hover
+        aboutImage.addEventListener('mouseenter', function() {
+            this.classList.add('hover-effect');
+        });
+        aboutImage.addEventListener('mouseleave', function() {
+            this.classList.remove('hover-effect');
+        });
+
+        // Touch events
+        aboutImage.addEventListener('touchstart', function() {
+            this.classList.add('touch-hover');
+        });
+        aboutImage.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('touch-hover');
+            }, 500);
+        });
+    }
+
+    // Close sidebar when clicking on a project link
+    const projectLinks = document.querySelectorAll('.pics a');
+    projectLinks.forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
+});
+
+// Add touch hover effect for project slides
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    
+    slides.forEach(slide => {
+        // Handle touch events
+        slide.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.classList.add('touch-active');
+        });
+        
+        slide.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            setTimeout(() => {
+                this.classList.remove('touch-active');
+            }, 300);
+        });
+        
+        // Prevent default behavior for touch moves to avoid scrolling
+        slide.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    });
+    
+    // Close touch hover when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.slide')) {
+            slides.forEach(slide => {
+                slide.classList.remove('touch-active');
+            });
+        }
+    });
+});
