@@ -16,12 +16,16 @@ body {
     
 }
 header {
-    border: 0;
+     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
+    padding: 20px 5%;
     background-color: transparent;
-    padding: 10px 0;
 }
 
 a {
