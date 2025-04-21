@@ -25,32 +25,39 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 5px 5%;
-    background-color: black;
-}
 
-a {
-    text-decoration: none;
+    /* ULTRA blur glass effect */
+    background-color: rgba(0, 0, 0, 0.1); /* Very light transparency */
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Optional depth effect */
 }
 
 header ul {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 header ul li {
-    margin-right: 20px;
+    margin-left: 30px;
+}
+
+header a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    transition: all 0.3s ease;
 }
 
 header a:hover {
     background-color: white;
     color: black;
-    padding: 7px;
+    padding: 7px 15px;
     border-radius: 15px;
-    transition: 0.5s;
-    cursor: pointer;
 }
+
 
 .icon {
     display: none;
