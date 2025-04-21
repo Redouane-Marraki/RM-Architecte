@@ -859,3 +859,28 @@ ul.small-list li:hover {
 .dot.active {
     background-color: white;
 }
+
+@media (max-width: 768px) {
+    .slides {
+        width: 300%; /* stays the same, 3 slides */
+    }
+
+    .slide {
+        width: 100%; /* each slide takes full width */
+    }
+
+    .slide-content h1 {
+        font-size: 2rem; /* smaller titles for mobile */
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+
+    .dot {
+        width: 14px;
+        height: 14px;
+        margin: 0 6px;
+    }
+}
+
