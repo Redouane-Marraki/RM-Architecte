@@ -861,38 +861,20 @@ ul.small-list li:hover {
 }
 
 @media (max-width: 768px) {
-    .intro-carousel {
-        height: 100vh; /* Full screen */
-    }
-
     .slides {
-        width: 300%; /* 3 slides */
-        height: 100%;
-        transition: transform 1s ease-in-out; /* smoother transition */
+        width: 300%; /* stays the same, 3 slides */
     }
 
     .slide {
-        width: 100%; /* One full slide per screen */
-        height: 100vh; /* Full height */
-    }
-
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* or use 'contain' for full image */
-    }
-
-    .slide-content {
-        width: 90%;
-        padding: 20px;
+        width: 100%; /* each slide takes full width */
     }
 
     .slide-content h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* smaller titles for mobile */
     }
 
     .slide-content p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .dot {
