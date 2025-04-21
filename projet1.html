@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-    <title>RM Architecte - Station-Service</title>
-    <link rel="icon" href="rm-iconn.png" type="image/png" sizes="100x100">
-    <!-- Include Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>RM Architecte - Un Monde de Création</title>
+    <link rel="icon" href="rm-iconn.png" type="image/png" sizes="100x100" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
-      <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+      <span class="close-btn">&times;</span>
       <ul>
         <li><a href="index.html">ACCUEIL</a></li>
+        <li><a href="#projects">MESS PROJETS</a></li>
+        <li><a href="#about">À PROPOS DE MOI</a></li>
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </div>
@@ -23,14 +27,18 @@
     <!-- Header -->
     <header class="header">
       <div>
-        <a href="index.html"><h1>RM Architecte</h1></a>
+        <a href="index.html" class="logo-rm"
+          ><img src="logo-bg.png" class="logo"
+        /></a>
       </div>
       <ul class="desktop-nav">
         <li><a href="index.html">ACCUEIL</a></li>
+        <li><a href="#projects">MES PROJETS</a></li>
+        <li><a href="#about">À PROPOS DE MOI</a></li>
         <li><a href="#contact">CONTACT</a></li>
       </ul>
       <ul class="mobile-nav">
-        <li class="icon" onclick="toggleSidebar()">&#9776;</li>
+        <li class="icon">&#9776;</li>
       </ul>
     </header>
 
