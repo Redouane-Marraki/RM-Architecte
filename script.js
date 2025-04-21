@@ -1,3 +1,14 @@
+// Toggle sidebar
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open");
+}
+
+// Close sidebar
+function closeSidebar() {
+    document.getElementById("sidebar").classList.remove("open");
+}
+
 // Toggle the sidebar
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -209,31 +220,76 @@ document.addEventListener('DOMContentLoaded', function() {
         const slideWidth = 100 / slideCount;
         slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
         
+        document.addEventListener('DOMContentLoaded', function () {
+    const slidesContainer = document.querySelector('.slides');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    const slideCount = document.querySelectorAll('.slide').length;
+    const slideInterval = 1000; // 1 second for slide transition
+
+    // Function to move to a specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        const slideWidth = 100 / slideCount;
+        slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+
         // Update dots
         dots.forEach(dot => dot.classList.remove('active'));
         dots[currentSlide].classList.add('active');
     }
-    
+
+    // Function to go to the next slide
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slideCount;
         goToSlide(currentSlide);
     }
-    
-    // Set up automatic sliding
+
+    // Set up automatic sliding with 1-second interval
     let autoSlide = setInterval(nextSlide, slideInterval);
-    
+
     // Pause on hover
     const carousel = document.querySelector('.carousel');
     carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
     carousel.addEventListener('mouseleave', () => {
         autoSlide = setInterval(nextSlide, slideInterval);
     });
-    
+
     // Dot navigation
     dots.forEach(dot => {
-        dot.addEventListener('click', function() {
+        dot.addEventListener('click', function () {
             const slideIndex = parseInt(this.getAttribute('data-slide'));
             goToSlide(slideIndex);
+        });
+    });
+
+    // Touch events for mobile to move slides
+    const slides = document.querySelectorAll('.slide');
+    let touchStartX = 0;
+    let isMoving = false;
+
+    slides.forEach(slide => {
+        slide.addEventListener('touchstart', function (e) {
+            touchStartX = e.touches[0].clientX;
+            isMoving = false;
+        });
+
+        slide.addEventListener('touchmove', function (e) {
+            isMoving = true;
+        });
+
+        slide.addEventListener('touchend', function (e) {
+            const touchEndX = e.changedTouches[0].clientX;
+
+            if (isMoving) {
+                if (touchStartX > touchEndX) {
+                    // Swiped left
+                    nextSlide();
+                } else if (touchStartX < touchEndX) {
+                    // Swiped right
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                    goToSlide(currentSlide);
+                }
+            }
         });
     });
 });
