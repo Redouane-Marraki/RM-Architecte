@@ -1735,7 +1735,7 @@ ul.small-list li:hover {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: orangered;
+    background-color: black;
     margin: 0 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
