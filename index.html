@@ -41,25 +41,40 @@
 
 
     <main class="main">
-      <div class="intro">
-          <!-- Image Carousel/Slider with sliding animation -->
-          <div class="carousel">
-              <div class="slides-container">
-                  <div class="slides">
-                      <img src="slide-1.jpg" alt="Image 1" class="slide">
-                      <img src="slide-4.jpg" alt="Image 2" class="slide">
-                      <img src="slide-2.jpg" alt="Image 3" class="slide">
-                  </div>
-              </div>
-              <!-- Navigation dots -->
-              <div class="dots">
-                  <span class="dot active" data-slide="0"></span>
-                  <span class="dot" data-slide="1"></span>
-                  <span class="dot" data-slide="2"></span>
-              </div>
+  <div class="intro">
+    <!-- Image Carousel/Slider with sliding animation -->
+    <div class="carousel">
+      <div class="slides-container">
+        <div class="slides">
+          <div class="slide">
+            <picture>
+              <source srcset="slide-1-mobile.jpg" media="(max-width: 768px)" />
+              <img src="slide-1.jpg" alt="Image 1" class="slide-img" />
+            </picture>
           </div>
+          <div class="slide">
+            <picture>
+              <source srcset="slide-2-mobile.jpg" media="(max-width: 768px)" />
+              <img src="slide-4.jpg" alt="Image 2" class="slide-img" />
+            </picture>
+          </div>
+          <div class="slide">
+            <picture>
+              <source srcset="slide-3-mobile.jpg" media="(max-width: 768px)" />
+              <img src="slide-2.jpg" alt="Image 3" class="slide-img" />
+            </picture>
+          </div>
+        </div>
       </div>
-  </main>
+      <!-- Navigation dots -->
+      <div class="dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+      </div>
+    </div>
+  </div>
+</main>
 
 
 
