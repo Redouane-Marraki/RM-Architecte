@@ -45,7 +45,6 @@ header ul li {
 
 header a {
     text-decoration: none;
-    font-weight: bold;
     font-size: 18px;
     color: white;
     transition: all 0.3s ease;
@@ -55,7 +54,7 @@ header a {
 header a:hover {
     background-color: white;
     color: black;
-    padding: 7px 15px;
+    padding: 7px 10px;
     border-radius: 15px;
 }
 
